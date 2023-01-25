@@ -6,6 +6,7 @@
   position: relative;
   display: grid;
   justify-items: center;
+  cursor: pointer;
 }
 
 .cliente__title {
@@ -31,6 +32,7 @@
   width: 600px;
   position: absolute;
   z-index: 30;
+  cursor: pointer;
 }
 
 .cliente__img img {
@@ -51,7 +53,7 @@
 
 @media (max-width: 900px) {
   .cliente {
-    height: 140px;
+    height: 200px;
     width: 80%;
     background-color: rgba(37, 37, 37, 0.349);
     border-radius: 15px;

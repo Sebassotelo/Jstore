@@ -6,19 +6,15 @@ function Cliente() {
   const navigate = useNavigate();
   return (
     <div className="cliente">
-      <a
-        href="https://www.jStore.com.ar/SrasMedias"
-        className="cliente__title"
-        target={"_blank"}
-      >
+      <p onClick={() => navigate("SrasMedias")} className="cliente__title">
         <p>Tienda de Sras Medias</p>
-      </a>
+      </p>
 
-      <a href="https://www.jStore.com.ar/SrasMedias" className="cliente__img">
+      <div onClick={() => navigate("SrasMedias")} className="cliente__img">
         <img src="https://i.imgur.com/AOjZcSv.jpg" alt="" />
-      </a>
+      </div>
 
-      <div className="cliente__info">
+      <div className="cliente__info" onClick={() => navigate("SrasMedias")}>
         <h3>🛸 E S T A M O S EN EL F U T U R O</h3>
       </div>
     </div>
