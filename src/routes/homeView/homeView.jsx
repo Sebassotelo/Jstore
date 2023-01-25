@@ -33,10 +33,6 @@ function HomeView() {
     onAuthStateChanged(context.auth, inspectorSesion);
     console.log("estado usuario", context.estadoUsuario);
     document.title = "SrasMedias";
-
-    if (window.location.href === "https://www.jstore.com.ar/") {
-      navigate("/SrasMedias");
-    }
   }, []);
 
   const inspectorSesion = (usuarioFirebase) => {
