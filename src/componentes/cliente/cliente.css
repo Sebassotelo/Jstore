@@ -1,5 +1,5 @@
 .cliente {
-  height: 200px;
+  height: 300px;
   width: 600px;
   background-color: rgba(37, 37, 37, 0.349);
   border-radius: 15px;
@@ -27,7 +27,7 @@
 }
 
 .cliente__img {
-  height: 200px;
+  height: 300px;
   width: 600px;
   position: absolute;
   z-index: 30;

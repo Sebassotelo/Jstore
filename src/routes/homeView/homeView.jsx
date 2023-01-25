@@ -135,7 +135,7 @@ function HomeView() {
         </div>
       </section>
 
-      <section id="clientes" className="home__clientes">
+      <section id="medias" className="home__clientes">
         <h3 className="about__h3">Nuestras Medias</h3>
         <Cliente />
       </section>

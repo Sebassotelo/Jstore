@@ -55,21 +55,12 @@ function NavbarNoAuth() {
           </Link>
           <Link
             className="navbar__item"
-            to={"precio"}
+            to={"medias"}
             spy={true}
             smooth={true}
             duration={500}
           >
             Medias
-          </Link>
-          <Link
-            className="navbar__item"
-            to={"clientes"}
-            spy={true}
-            smooth={true}
-            duration={500}
-          >
-            Clientes
           </Link>
         </ul>
       </div>
@@ -100,23 +91,13 @@ function NavbarNoAuth() {
               </Link>
               <Link
                 className="navbar__item__mobile"
-                to={"precio"}
+                to={"medias"}
                 spy={true}
                 smooth={true}
                 duration={500}
                 onClick={() => setShow(false)}
               >
                 Medias
-              </Link>
-              <Link
-                className="navbar__item__mobile"
-                to={"clientes"}
-                spy={true}
-                smooth={true}
-                duration={500}
-                onClick={() => setShow(false)}
-              >
-                Clientes
               </Link>
             </ul>
             <VscClose

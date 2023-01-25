@@ -7,19 +7,19 @@ function Cliente() {
   return (
     <div className="cliente">
       <a
-        href="https://www.menus.com.ar/menu"
+        href="https://www.jStore.com.ar/SrasMedias"
         className="cliente__title"
         target={"_blank"}
       >
-        <p>www.menus.com.ar/menu</p>
+        <p>Tienda de Sras Medias</p>
       </a>
 
-      <div className="cliente__img">
-        <img src="https://i.imgur.com/ldjkKuf.jpg" alt="" />
-      </div>
+      <a href="https://www.jStore.com.ar/SrasMedias" className="cliente__img">
+        <img src="https://i.imgur.com/AOjZcSv.jpg" alt="" />
+      </a>
 
       <div className="cliente__info">
-        <h3>Menu de Ejemplo</h3>
+        <h3>🛸 E S T A M O S EN EL F U T U R O</h3>
       </div>
     </div>
   );
