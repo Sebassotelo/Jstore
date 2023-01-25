@@ -51,7 +51,7 @@ function NavbarNoAuth() {
             smooth={true}
             duration={500}
           >
-            ¿Como funciona?
+            Como realizar pedido
           </Link>
           <Link
             className="navbar__item"
@@ -60,7 +60,7 @@ function NavbarNoAuth() {
             smooth={true}
             duration={500}
           >
-            Precios
+            Medias
           </Link>
           <Link
             className="navbar__item"
@@ -72,14 +72,6 @@ function NavbarNoAuth() {
             Clientes
           </Link>
         </ul>
-        <div
-          onClick={() => signInWithPopup(context.auth, googleProvider)}
-          className="loggin"
-        >
-          {" "}
-          <FcGoogle className="loggin__google" />
-          <p>Acceder con Google</p>
-        </div>
       </div>
 
       {show ? (
@@ -104,7 +96,7 @@ function NavbarNoAuth() {
                 duration={500}
                 onClick={() => setShow(false)}
               >
-                ¿Como funciona?
+                Hacer mi Pedido
               </Link>
               <Link
                 className="navbar__item__mobile"
@@ -114,7 +106,7 @@ function NavbarNoAuth() {
                 duration={500}
                 onClick={() => setShow(false)}
               >
-                Precios
+                Medias
               </Link>
               <Link
                 className="navbar__item__mobile"
@@ -127,17 +119,6 @@ function NavbarNoAuth() {
                 Clientes
               </Link>
             </ul>
-            <div
-              onClick={() => {
-                signInWithPopup(context.auth, googleProvider);
-                setShow(false);
-              }}
-              className="loggin__mobile"
-            >
-              {" "}
-              <FcGoogle className="loggin__google" />
-              <p>Acceder con Google</p>
-            </div>
             <VscClose
               className="navNoAuthClose"
               onClick={() => setShow(false)}

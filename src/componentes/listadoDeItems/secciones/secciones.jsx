@@ -26,6 +26,7 @@ function Secciones({ item, setArray, arrayItems }) {
   const [editarPrecio, setEditarPrecio] = useState(false);
   const [precioNuevo, setPrecioNuevo] = useState(null);
   const [urlNueva, setUrlNueva] = useState(null);
+  const [stockNuevo, setStockNuevo] = useState(null);
 
   const editPrecio = async (e) => {
     //traemos los datos de base de datos
@@ -46,6 +47,12 @@ function Secciones({ item, setArray, arrayItems }) {
     }
     if (urlNueva) {
       itemFiltrado[0].img = urlNueva;
+    }
+    if (!itemFiltrado[0].stock) {
+      setStockNuevo(1);
+    }
+    if (stockNuevo) {
+      itemFiltrado[0].stock = stockNuevo;
     }
 
     //creamos el nuevo array con el item ya editado y traemos las otras secciones
@@ -68,13 +75,13 @@ function Secciones({ item, setArray, arrayItems }) {
     });
 
     //Actualizamos la base de datos
-    if (precioNuevo || urlNueva) {
+    if (precioNuevo || urlNueva || stockNuevo || !stockNuevo) {
       updateDoc(docRef, { items: [...otraSecciones] });
 
       setArray(otraSecciones);
       setPrecioNuevo(null);
       setUrlNueva(null);
-      toast.success("Item Actualizado");
+      setStockNuevo(null);
     } else {
       setPrecioNuevo(null);
       setUrlNueva(null);
@@ -161,6 +168,7 @@ function Secciones({ item, setArray, arrayItems }) {
               editPrecio={editPrecio}
               setPrecioNuevo={setPrecioNuevo}
               setUrlNueva={setUrlNueva}
+              setStockNuevo={setStockNuevo}
             />
           );
         })}

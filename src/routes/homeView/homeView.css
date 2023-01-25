@@ -1,12 +1,6 @@
 .home {
-  background-color: hsla(291, 0%, 100%, 1);
-  background-image: radial-gradient(
-      at 21% 15%,
-      hsla(246, 96%, 78%, 1) 0px,
-      transparent 50%
-    ),
-    radial-gradient(at 42% 91%, hsla(305, 100%, 71%, 0.67) 0px, transparent 50%),
-    radial-gradient(at 82% 32%, hsla(284, 100%, 65%, 0.8) 0px, transparent 50%);
+  background-color: rgb(230, 230, 230);
+
   color: white;
 
   width: 100%;
@@ -44,6 +38,10 @@
   align-items: center;
   justify-items: center;
   position: relative;
+}
+
+.title__img {
+  height: 300px;
 }
 
 .title__h1 {
@@ -84,7 +82,7 @@
 .title__p {
   font-size: 20px;
   font-weight: 800;
-  color: rgb(88, 0, 0);
+  color: rgb(27, 27, 27);
 }
 
 .header__img {
@@ -161,6 +159,10 @@
     align-items: center;
   }
   .header__title {
+  }
+
+  .title__img {
+    height: 200px;
   }
   .title__h1 {
     font-size: 80px;

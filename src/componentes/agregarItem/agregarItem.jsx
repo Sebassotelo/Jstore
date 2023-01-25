@@ -29,6 +29,7 @@ function AgregarItem({ array, id, setArray }) {
     const desc = e.target.inputDesc.value;
     const precio = e.target.inputPrecio.value;
     const urlFoto = e.target.inputFoto.value;
+    const stock = e.target.inputStock.value;
 
     //traemos los datos de base de datos
     const docRef = doc(firestore, `users/${context.user.email}`);
@@ -51,6 +52,7 @@ function AgregarItem({ array, id, setArray }) {
           precio: precio,
           id: +new Date(),
           img: urlFoto,
+          stock: stock,
         },
         ...array.seccionItems,
       ],
@@ -68,23 +70,8 @@ function AgregarItem({ array, id, setArray }) {
     e.target.inputDesc.value = "";
     e.target.inputPrecio.value = "";
     e.target.inputFoto.value = "";
+    e.target.inputStock.value = "";
     e.target.inputFile.value = null;
-  };
-
-  const fileHandler = async (e) => {
-    setCarga(null);
-    //detectar el archivo
-    const archivoLocal = e.target.files[0];
-    //cargarlo a firebase storage
-    const archivoRef = ref(
-      storage,
-      `${context.user.email}/${archivoLocal.name}`
-    );
-    await uploadBytes(archivoRef, archivoLocal);
-    //obtener URL
-    const urlImg = await getDownloadURL(archivoRef);
-    setUrl(urlImg);
-    setCarga(true);
   };
 
   const popup = () => {
@@ -141,16 +128,16 @@ function AgregarItem({ array, id, setArray }) {
                     required
                   />
                 </div>
-                {/* 
                 <div>
-                  <p className="account__form__p">Foto del Producto:</p>
+                  <p className="account__form__p">Stock:</p>
                   <input
-                    type="file"
+                    type="number"
+                    placeholder="Stock"
                     className="account__form__input"
-                    onChange={fileHandler}
-                    id="inputFile"
+                    id="inputStock"
+                    required
                   />
-                </div> */}
+                </div>
               </div>
 
               {carga ? (

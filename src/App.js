@@ -9,7 +9,7 @@ import MenuView from "./routes/menuView/menuView";
 import HomeView from "./routes/homeView/homeView";
 import AccountView from "./routes/accountView/accountView";
 import AccountConfigView from "./routes/accountConfigView/accountConfigView";
-import ConfirmacionView from "./routes/confirmacionView/confirmacionView";
+import LoginView from "./routes/loginView/loginView";
 import { useEffect } from "react";
 import Footer from "./componentes/footer/footer";
 
@@ -22,10 +22,7 @@ function App() {
           <Route path=":username" element={<MenuView />} />
           <Route path="account" element={<AccountView />} />
           <Route path="account/config" element={<AccountConfigView />} />
-          <Route
-            path="account/confirmacion-de-pago-0521"
-            element={<ConfirmacionView />}
-          />
+          <Route path="login" element={<LoginView />} />
         </Routes>
       </BrowserRouter>
       <section id="footer">

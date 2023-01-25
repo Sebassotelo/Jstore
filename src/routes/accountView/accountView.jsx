@@ -125,34 +125,34 @@ function AccountView() {
       if (infoDocu.username !== "generico" && context.infoPublica.premium) {
         setEstadoUsuario(4);
       }
-      console.log("estado usuario", context.estadoUsuario);
+
       return infoDocu;
     } else {
-      const fecha = new Date();
-      await setDoc(docRef, {
-        cliente: context.user.displayName,
-        items: [...fake],
-        username: "generico",
-        perfil: configGenerico,
-        urlFoto: "generico",
-        premium: true,
-        premiumPago: "",
-        premiumVence: `${fecha.getDate() + 7}/${
-          fecha.getMonth() + 1
-        }/${fecha.getFullYear()}`,
-        style: {},
-        styleNoPremium: {},
-        fechaDeCreacion: `${fecha.getDate()}/${
-          fecha.getMonth() + 1
-        }/${fecha.getFullYear()} ${fecha.getHours()}:${fecha.getMinutes() + 1}`,
-      });
-      setUsuario(null);
-      setEstadoUsuario(1);
-      setLoader(true);
-      const consulta = await getDoc(docRef);
-      const infoDocu = consulta.data();
-      setInfoPublica(infoDocu);
-      return infoDocu;
+      // const fecha = new Date();
+      // await setDoc(docRef, {
+      //   cliente: context.user.displayName,
+      //   items: [...fake],
+      //   username: "generico",
+      //   perfil: configGenerico,
+      //   urlFoto: "generico",
+      //   premium: true,
+      //   premiumPago: "",
+      //   premiumVence: `${fecha.getDate() + 7}/${
+      //     fecha.getMonth() + 1
+      //   }/${fecha.getFullYear()}`,
+      //   style: {},
+      //   styleNoPremium: {},
+      //   fechaDeCreacion: `${fecha.getDate()}/${
+      //     fecha.getMonth() + 1
+      //   }/${fecha.getFullYear()} ${fecha.getHours()}:${fecha.getMinutes() + 1}`,
+      // });
+      // setUsuario(null);
+      // setEstadoUsuario(1);
+      // setLoader(true);
+      // const consulta = await getDoc(docRef);
+      // const infoDocu = consulta.data();
+      // setInfoPublica(infoDocu);
+      // return infoDocu;
     }
   };
 

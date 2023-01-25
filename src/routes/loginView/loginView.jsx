@@ -1,8 +1,16 @@
 import React, { useState, useContext, useEffect, useRef } from "react";
-import "./confirmacionView.css";
+import "./loginView.css";
 import CarroContext from "../../context/carro/carroContext";
 import toast, { Toaster } from "react-hot-toast";
-import { onAuthStateChanged } from "firebase/auth";
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  GoogleAuthProvider,
+  onAuthStateChanged,
+  signInWithPopup,
+  signInWithRedirect,
+  signOut,
+} from "firebase/auth";
 import { BsFillCheckCircleFill, BsArrowReturnLeft } from "react-icons/bs";
 
 import {
@@ -26,6 +34,8 @@ import NavbarMobile from "../../componentes/navbarMobile/navbarMobile";
 import Loader from "../../componentes/loader/Loader";
 
 function ConfirmacionView() {
+  const googleProvider = new GoogleAuthProvider();
+
   const navigate = useNavigate();
   const context = useContext(CarroContext);
   const {
@@ -38,7 +48,7 @@ function ConfirmacionView() {
 
   const [array, setArray] = useState(null);
   const [containerSeccion, setContainerSeccion] = useState("");
-  const [loader, setLoader] = useState(false);
+  const [loader, setLoader] = useState(true);
   const [vence, setVence] = useState("");
   const [newPremium, setNewPremium] = useState(false);
 
@@ -48,7 +58,6 @@ function ConfirmacionView() {
   useEffect(() => {
     onAuthStateChanged(context.auth, inspectorSesion);
     fetchTareas();
-    setearPremium();
   }, [context.user]);
 
   const fetchTareas = async () => {
@@ -65,7 +74,7 @@ function ConfirmacionView() {
       document.title = `Menus | ${context.user.displayName}`;
     } else {
       //en caso de que haya seison iniciada
-      navigate("/");
+
       setUser(null);
     }
   };
@@ -104,52 +113,26 @@ function ConfirmacionView() {
       console.log("estado usuario", context.estadoUsuario);
       return infoDocu;
     } else {
-      const fecha = new Date();
-      await setDoc(docRef, {
-        items: [...fake],
-        username: "generico",
-        perfil: configGenerico,
-        urlFoto: "generico",
-        premium: true,
-        style: {},
-        styleNoPremium: {},
-        fechaDeCreacion: `${fecha.getDate()}/${
-          fecha.getMonth() + 1
-        }/${fecha.getFullYear()} ${fecha.getHours()}:${fecha.getMinutes() + 1}`,
-      });
-      setUsuario(null);
-      setEstadoUsuario(1);
-      setLoader(true);
-      const consulta = await getDoc(docRef);
-      const infoDocu = consulta.data();
-      setInfoPublica(infoDocu);
-      return infoDocu;
-    }
-  };
-
-  const setearPremium = async () => {
-    const docRef = doc(firestore, `users/${context.user.email}`);
-    const consulta = await getDoc(docRef);
-    const info = consulta.data();
-    if (info.premiumPago === "") {
-      const fecha = new Date();
-      const pago = `${fecha.getDate()}/${
-        fecha.getMonth() + 1
-      }/${fecha.getFullYear()} ${fecha.getHours()}:${fecha.getMinutes() + 1}`;
-      const fechaVence = `${fecha.getDate()}/${
-        fecha.getMonth() + 2
-      }/${fecha.getFullYear()}`;
-      updateDoc(docRef, {
-        premiumPago: pago,
-        premium: true,
-        premiumVence: fechaVence,
-      });
-      setVence(
-        `${fecha.getDate()}/${fecha.getMonth() + 2}/${fecha.getFullYear()}`
-      );
-      setNewPremium(true);
-    } else {
-      // navigate(`/account`);
+      // const fecha = new Date();
+      // await setDoc(docRef, {
+      //   items: [...fake],
+      //   username: "generico",
+      //   perfil: configGenerico,
+      //   urlFoto: "generico",
+      //   premium: true,
+      //   style: {},
+      //   styleNoPremium: {},
+      //   fechaDeCreacion: `${fecha.getDate()}/${
+      //     fecha.getMonth() + 1
+      //   }/${fecha.getFullYear()} ${fecha.getHours()}:${fecha.getMinutes() + 1}`,
+      // });
+      // setUsuario(null);
+      // setEstadoUsuario(1);
+      // setLoader(true);
+      // const consulta = await getDoc(docRef);
+      // const infoDocu = consulta.data();
+      // setInfoPublica(infoDocu);
+      // return infoDocu;
     }
   };
 
@@ -159,37 +142,11 @@ function ConfirmacionView() {
         {context.user ? <Navbar /> : ""}
         {context.user ? <NavbarMobile /> : ""}
         <div className="confirmacion__premium">
-          <div className="confirmacion__premium__container">
-            <BsFillCheckCircleFill className="confirmacion__premium__icon" />
-            <p className="confirmacion__premium__p">
-              Gracias por contratar Menus Premium
-            </p>
-            <p>
-              Puede cancelar la subscripcion en cualquier momento desde {""}
-              <a
-                className="cancelar__suscripcion"
-                href="https://www.mercadopago.com.ar/subscriptions"
-                target={"_blank"}
-              >
-                Subscripciones de MercadoPago
-              </a>
-            </p>
-            {newPremium && (
-              <>
-                <p>Premium vence el {vence}</p>
-              </>
-            )}
-            <div
-              className="volver"
-              onClick={() => navigate("/account")}
-              style={{
-                bottom: "-35px",
-                backgroundColor: "rgba(0, 0, 0, 0.514)",
-              }}
-            >
-              <BsArrowReturnLeft className="volver__icon" />
-              <p>Volver</p>
-            </div>
+          <div
+            className="confirmacion__premium__container"
+            onClick={() => signInWithPopup(context.auth, googleProvider)}
+          >
+            <p>Ingresar con Google</p>
           </div>
         </div>
       </div>

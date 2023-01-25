@@ -12,7 +12,7 @@ import {
 } from "firebase/firestore";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 
-import MenuItem from "../../../menu-item/menuItem";
+import MenuItemAccount from "../../../menu-item-account/menuItemAccount";
 import AgregarItem from "../../../agregarItem/agregarItem";
 import toast, { Toaster } from "react-hot-toast";
 
@@ -23,6 +23,8 @@ function ItemSeccion({
   editPrecio,
   setPrecioNuevo,
   setUrlNueva,
+  setStockNuevo,
+  stockRapido,
 }) {
   const context = useContext(CarroContext);
   const { setMenuCompleto } = useContext(CarroContext);
@@ -37,15 +39,21 @@ function ItemSeccion({
   const cambioUrl = (e) => {
     setUrlNueva(e.target.value);
   };
+  const cambioStock = (e) => {
+    setStockNuevo(e.target.value);
+  };
 
   return (
     <div className="item__seccion__div">
-      <MenuItem
+      <MenuItemAccount
         title={item.title}
         precio={item.precio}
         desc={item.desc}
         img={item.img}
         id={item.id}
+        stock={item.stock}
+        setStockNuevo={setStockNuevo}
+        editPrecio={editPrecio}
       />
 
       {editarPrecio ? (
@@ -81,6 +89,24 @@ function ItemSeccion({
                   type="text"
                   placeholder="Url Imagen"
                   onChange={cambioUrl}
+                />
+                <button type="submit" className="guardar__edit">
+                  Guardar
+                </button>
+              </form>
+              <form
+                className="edit__precio"
+                onSubmit={() => {
+                  editPrecio(item.id);
+                  setEditarPrecio(!editarPrecio);
+                }}
+              >
+                {" "}
+                <input
+                  defaultValue={item.stock}
+                  type="number"
+                  placeholder="Stock Nuevo"
+                  onChange={cambioStock}
                 />
                 <button type="submit" className="guardar__edit">
                   Guardar

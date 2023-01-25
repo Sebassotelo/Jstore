@@ -17,7 +17,6 @@ import Navbar from "../../componentes/navbar/navbar";
 import NavbarMobile from "../../componentes/navbarMobile/navbarMobile";
 import Tarjeta from "../../componentes/tarjeta/tarjeta";
 import Cliente from "../../componentes/cliente/cliente";
-import CartPremium from "../../componentes/cartPremium/cartPremium";
 import NavbarNoAuth from "../../componentes/navbarNoAuth/navbarNoAuth";
 
 function HomeView() {
@@ -33,7 +32,7 @@ function HomeView() {
     setEstadoUsuario(0);
     onAuthStateChanged(context.auth, inspectorSesion);
     console.log("estado usuario", context.estadoUsuario);
-    document.title = "Menus | Tu menu online";
+    document.title = "SrasMedias";
 
     if (window.location.href === "https://www.jstore.com.ar/") {
       navigate("/SrasMedias");
@@ -88,18 +87,14 @@ function HomeView() {
         <div className="header__container">
           <div className="header__title">
             <div className="title__div">
-              <h1 className="title__h1">Menus</h1>
-              <div className="title__beta">
-                <img
-                  src="https://www.keyshapeapp.com/images/blog/2017-02-12-beta.png"
-                  alt=""
-                />
-              </div>
+              <img
+                className="title__img"
+                src="https://i.imgur.com/Us77N0f.png"
+                alt=""
+              />
             </div>
-
-            <h3 className="title__h3">Tu menu online</h3>
-            <p className="title__p"> Encargate de la comida </p>
-            <p className="title__p"> Nosotros nos encargamos de los pedidos</p>
+            <p className="title__p"> 🛸 E S T A M O S EN EL F U T U R O</p>
+            <p className="title__p"> ⚡P I C K U P ⚡</p>
           </div>
           {/* <div className="header__img">
             <img src="https://i.imgur.com/DYPel8f.png" alt="" />
@@ -112,72 +107,40 @@ function HomeView() {
           className="about__h3"
           style={{ color: "white", borderColor: "white" }}
         >
-          ¿Como Funciona Menus?
+          ¿Como hago mi Pedido?
         </h3>
         <div className="about__tarjeta">
           <Tarjeta
             numero={1}
-            title={"Accede con Google"}
-            desc={"Accede con cualquier cuenta de Google"}
-            extra={
-              <div
-                onClick={() => signInWithPopup(context.auth, googleProvider)}
-                className="loggin"
-                style={{ border: "1px solid black", margin: "0 8px 0 8px" }}
-              >
-                <FcGoogle className="loggin__google" />
-                <p>Acceder con Google</p>
-              </div>
-            }
+            title={"Buscar el Producto"}
+            desc={"Elige las medias que quieras"}
           />
           <Tarjeta
             numero={2}
-            title={"Configura tu Usuario y Perfil"}
+            title={"Agregar al Carrito"}
             desc={
-              "El nombre de usuario va a ser tu direccion url (menus.com.ar/usuario). Completa tu perfil con numeros, direccion y logo."
+              "Haz click en el boton rojo para agregar el producto al carrito"
             }
           />
           <Tarjeta
             numero={3}
-            title={"Agrega las Comidas"}
+            title={"Confirma el pedido"}
             desc={
-              "Crea las secciones que necesites, y dentro te va a dejar agregar las comidas"
+              "Arriba a la derecha veras el carrito, despliegalo y confirma el pedido"
             }
           />
           <Tarjeta
             numero={4}
-            title={"Listo! Recibe los pedidos"}
+            title={"Envia tu pedido por WhatsApp"}
             desc={
-              "Una vez terminado el pedido, hacen click en el Link a WhatsApp, y mandan el pedido ya hecho."
+              "Una vez confirmado el pedido, va a aparecer un boton que te va a mandar al WhatsApp, alli ya vas a tener tu pedido listo para enviarlo"
             }
           />
-        </div>
-      </section>
-
-      <section id="precio" className="precio">
-        <h3 className="about__h3">Precios</h3>
-        <div className="precio__cart">
-          <CartPremium
-            title={"FREE"}
-            precio={"0"}
-            extra={
-              <div
-                onClick={() => signInWithPopup(context.auth, googleProvider)}
-                className="loggin"
-                style={{ border: "1px solid black", margin: "0 8px 0 8px" }}
-              >
-                <FcGoogle className="loggin__google" />
-                <p>Acceder con Google</p>
-              </div>
-            }
-          />
-
-          <CartPremium title={"PREMIUM"} precio={"699"} premium={true} />
         </div>
       </section>
 
       <section id="clientes" className="home__clientes">
-        <h3 className="about__h3">Algunos de nuestros menus</h3>
+        <h3 className="about__h3">Nuestras Medias</h3>
         <Cliente />
       </section>
     </div>

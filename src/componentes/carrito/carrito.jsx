@@ -25,12 +25,17 @@ function Carrito() {
       totalPrecio = totalPrecio + e.precio * e.cant;
       totalUnidades = totalUnidades + e.cant;
     });
+    if (totalUnidades >= 3) {
+      totalPrecio = totalPrecio - totalUnidades * 50;
+    }
 
     setTotal(totalPrecio);
     setUnidades(totalUnidades);
     setCuenta(context.carrito);
     setConfirmacion(false);
     setRealizarPedido(true);
+
+    console.log("unidades", totalUnidades);
 
     if (totalUnidades === 0) {
       setConfirmacion(false);
@@ -101,10 +106,20 @@ function Carrito() {
         (e) =>
           (pedidoCopy =
             pedidoCopy +
-            `${e.cant}X%20${e.titulo}%20-----%20$${e.precio * e.cant}%20%0A`)
+            `${e.cant}X%20${e.titulo}%20-----%20$${
+              unidades >= 3
+                ? e.precio * e.cant - e.cant * 50
+                : e.precio * e.cant
+            }%20%0A`)
       );
+      let descuentoTotal;
+      if (unidades >= 3) {
+        descuentoTotal = `Descuento:%20$${unidades * 50}`;
+      } else {
+        descuentoTotal = "";
+      }
       setPed(
-        `Hola,%20te%20pido%20esto:%0A%0A${pedidoCopy}%0ATotal:%20$${total}`
+        `Hola,%20te%20pido%20esto:%0A%0A${pedidoCopy}%0ATotal:%20$${total}%0A${descuentoTotal}`
       );
 
       navigator.clipboard.writeText(pedidoCopy);
@@ -160,7 +175,10 @@ function Carrito() {
                       className="carrito__precio"
                       style={{ color: `${context.letraCarrito}` }}
                     >
-                      ${e.precio * e.cant}
+                      $
+                      {unidades >= 3
+                        ? e.precio * e.cant - e.cant * 50
+                        : e.precio * e.cant}
                     </p>
                     <AiOutlineClose
                       className="carrito__eliminar"
@@ -182,6 +200,11 @@ function Carrito() {
                 <h4 style={{ color: `${context.letraCarrito}` }}>
                   TOTAL: ${total}
                 </h4>
+                {unidades >= 3 && (
+                  <p className="total__descuento">
+                    Descuento Aplicado de ${unidades * 50}
+                  </p>
+                )}
               </div>
 
               {realizarPedido ? (
