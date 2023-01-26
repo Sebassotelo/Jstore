@@ -58,7 +58,14 @@ function Menu() {
                     item.seccionItems.map((item, i) => {
                       return (
                         <>
-                          {item.stock > 0 && (
+                          <MenuItem
+                            title={item.title}
+                            precio={item.precio}
+                            desc={item.desc}
+                            img={item.img}
+                            id={item.id}
+                          />
+                          {/* {item.stock > 0 && (
                             <MenuItem
                               title={item.title}
                               precio={item.precio}
@@ -66,7 +73,7 @@ function Menu() {
                               img={item.img}
                               id={item.id}
                             />
-                          )}
+                          )} */}
                         </>
                       );
                     })}
