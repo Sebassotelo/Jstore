@@ -33,6 +33,7 @@ function HomeView() {
     onAuthStateChanged(context.auth, inspectorSesion);
     console.log("estado usuario", context.estadoUsuario);
     document.title = "SrasMedias";
+    window.scroll(0, 0);
   }, []);
 
   const inspectorSesion = (usuarioFirebase) => {

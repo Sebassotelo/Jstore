@@ -57,12 +57,8 @@ function MenuView() {
   useEffect(() => {
     llamada();
     onAuthStateChanged(context.auth, inspectorSesion);
-
-    if (window.location.href === "https://www.jstore.com.ar/") {
-      document.title = `Catalogo | ${username}`;
-    } else {
-      document.title = `Menus | ${username}`;
-    }
+    window.scroll(0, 0);
+    document.title = `SrasMedias`;
   }, []);
 
   const inspectorSesion = (usuarioFirebase) => {
