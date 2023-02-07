@@ -26,7 +26,7 @@ function Menu() {
         className="menu__h3"
         style={{ borderBottom: `1px solid ${context.letraCompMayor}` }}
       >
-        MENU
+        CATALOGO
       </h3>
       <div className="menu__navbar">
         {menu &&
@@ -72,6 +72,7 @@ function Menu() {
                               desc={item.desc}
                               img={item.img}
                               id={item.id}
+                              aaa
                             />
                           )} */}
                         </>
