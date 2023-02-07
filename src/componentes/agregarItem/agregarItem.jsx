@@ -107,7 +107,6 @@ function AgregarItem({ array, id, setArray }) {
                 placeholder="Descripcion"
                 className="account__form__input input__desc"
                 id="inputDesc"
-                required
               />
               <p className="account__form__p">URL de la Foto:</p>
               <input

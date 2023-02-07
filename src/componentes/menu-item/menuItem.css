@@ -159,8 +159,7 @@
   width: 100vw;
   height: 100vh;
   display: grid;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
+
   align-items: center;
   justify-items: center;
   background-color: rgba(0, 0, 0, 0.438);
@@ -183,7 +182,7 @@
   background-color: rgb(255, 255, 255);
   position: fixed;
   justify-self: center;
-  top: 20%;
+  top: 5% !important;
   display: grid;
   grid-template-rows: 1.8fr 1fr;
 }
@@ -213,6 +212,7 @@
   object-fit: cover;
   width: 100%;
   height: 100%;
+  max-height: 400px;
   border-top-right-radius: 15px;
   border-top-left-radius: 15px;
 }

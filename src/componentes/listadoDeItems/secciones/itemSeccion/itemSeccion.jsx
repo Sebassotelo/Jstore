@@ -24,6 +24,7 @@ function ItemSeccion({
   setPrecioNuevo,
   setUrlNueva,
   setStockNuevo,
+  setNombreNuevo,
   stockRapido,
 }) {
   const context = useContext(CarroContext);
@@ -41,6 +42,9 @@ function ItemSeccion({
   };
   const cambioStock = (e) => {
     setStockNuevo(e.target.value);
+  };
+  const cambioNombre = (e) => {
+    setNombreNuevo(e.target.value);
   };
 
   return (
@@ -60,6 +64,24 @@ function ItemSeccion({
         <div className="edit__delete__item">
           <div className="edit__item__container">
             <div className="edit__input__container">
+              <form
+                className="edit__precio"
+                onSubmit={() => {
+                  editPrecio(item.id);
+                  setEditarPrecio(!editarPrecio);
+                }}
+              >
+                {" "}
+                <input
+                  type="text"
+                  placeholder="Nombre"
+                  onChange={cambioNombre}
+                />
+                <button type="submit" className="guardar__edit">
+                  Guardar
+                </button>
+              </form>
+
               <form
                 className="edit__precio"
                 onSubmit={() => {
