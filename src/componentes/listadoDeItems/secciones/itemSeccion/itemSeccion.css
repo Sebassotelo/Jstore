@@ -28,6 +28,9 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 15px;
+  background-color: rgb(116, 115, 115);
+  padding: 15px;
+  border-radius: 15px;
 }
 
 .cancelar__edit {
