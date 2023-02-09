@@ -13,7 +13,7 @@ function Tarjeta({ numero, title, desc, extra }) {
 
       <p className="tarjeta__text">{desc}</p>
 
-      <div>{extra}</div>
+      {extra}
     </div>
   );
 }

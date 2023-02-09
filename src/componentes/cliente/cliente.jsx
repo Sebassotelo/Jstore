@@ -7,7 +7,7 @@ function Cliente() {
   return (
     <div className="cliente">
       <p onClick={() => navigate("SrasMedias")} className="cliente__title">
-        <p>Tienda de Sras Medias</p>
+        <p>IR AL CATALOGO</p>
       </p>
 
       <div onClick={() => navigate("SrasMedias")} className="cliente__img">

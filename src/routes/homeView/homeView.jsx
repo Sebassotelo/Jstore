@@ -92,6 +92,13 @@ function HomeView() {
             </div>
             <p className="title__p"> 🛸 E S T A M O S EN EL F U T U R O</p>
             <p className="title__p"> ⚡P I C K U P ⚡</p>
+
+            <p
+              className="title__catalogo"
+              onClick={() => navigate("/SrasMedias")}
+            >
+              IR AL CATALOGO
+            </p>
           </div>
           {/* <div className="header__img">
             <img src="https://i.imgur.com/DYPel8f.png" alt="" />
@@ -111,6 +118,14 @@ function HomeView() {
             numero={1}
             title={"Buscar el Producto"}
             desc={"Elige las medias que quieras"}
+            extra={
+              <p
+                className="tarjeta__catalogo"
+                onClick={() => navigate("/SrasMedias")}
+              >
+                Ir al Catalogo
+              </p>
+            }
           />
           <Tarjeta
             numero={2}

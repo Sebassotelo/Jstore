@@ -7,6 +7,7 @@ import Perfil from "../../componentes/perfil/perfil";
 import Menu from "../../componentes/menu/menu";
 import Navbar from "../../componentes/navbar/navbar";
 import NavbarMobile from "../../componentes/navbarMobile/navbarMobile";
+import NavbarNoAuth from "../../componentes/navbarNoAuth/navbarNoAuth";
 import {
   onAuthStateChanged,
   signInWithPopup,
@@ -120,6 +121,7 @@ function MenuView() {
           <div className="App" style={context.style.fondo} id="app">
             {context.user ? <Navbar /> : ""}
             {context.user ? <NavbarMobile /> : ""}
+            {/* {context.estadoUsuario === 0 && <NavbarNoAuth />} */}
 
             {context.estadoUsuario === 4 ? <EditarMenu /> : null}
             <Carrito />
