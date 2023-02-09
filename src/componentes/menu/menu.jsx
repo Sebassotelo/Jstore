@@ -26,7 +26,7 @@ function Menu() {
         className="menu__h3"
         style={{ borderBottom: `1px solid ${context.letraCompMayor}` }}
       >
-        Gorras
+        CATALOGO
       </h3>
       <div className="menu__navbar">
         {menu &&
