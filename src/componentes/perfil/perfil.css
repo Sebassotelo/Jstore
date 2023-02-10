@@ -25,12 +25,17 @@
   display: grid;
   align-items: center;
   justify-items: center;
+  overflow: hidden;
+  position: relative;
 }
 .logo__img {
+  position: absolute;
   height: 100%;
   width: 100%;
   object-fit: cover;
-  border-radius: 50%;
+  vertical-align: middle;
+  top: 50%;
+  transform: translateY(-50%);
 }
 .usuario {
   font-size: 20px;
