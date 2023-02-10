@@ -125,6 +125,11 @@ function MenuView() {
 
             {context.estadoUsuario === 4 ? <EditarMenu /> : null}
             <Carrito />
+
+            <AiOutlineHome
+              className="menu__home"
+              onClick={() => navigate("/")}
+            />
             <section id="perfil">
               <Perfil />
             </section>

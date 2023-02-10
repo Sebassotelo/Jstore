@@ -21,8 +21,20 @@
   justify-self: center;
 }
 
-.home__noAuth{
+.home__noAuth {
   font-size: 24px;
   color: white;
+  cursor: pointer;
+}
+
+.menu__home {
+  justify-self: center;
+  font-size: 26px;
+  align-self: center;
+  margin-top: 20px;
+  padding: 13px;
+  background-color: rgb(240, 240, 240);
+  border: 1px solid black;
+  border-radius: 50%;
   cursor: pointer;
 }
