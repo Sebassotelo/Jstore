@@ -113,13 +113,16 @@ function Carrito() {
             }%20%0A`)
       );
       let descuentoTotal;
+      let precioTotal;
       if (unidades >= 3) {
         descuentoTotal = `Descuento%20aplicado%20de:%20$${unidades * 50}`;
+        precioTotal = `Total%20con%20descuento:%20$${total}`;
       } else {
         descuentoTotal = "";
+        precioTotal = `Total:%20$${total}`;
       }
       setPed(
-        `Hola,%20te%20pido%20esto:%0A%0A${pedidoCopy}%0ATotal%20con%20descuento:%20$${total}%0A${descuentoTotal}`
+        `Hola,%20te%20pido%20esto:%0A%0A${pedidoCopy}%0A${precioTotal}%0A${descuentoTotal}`
       );
 
       navigator.clipboard.writeText(pedidoCopy);
