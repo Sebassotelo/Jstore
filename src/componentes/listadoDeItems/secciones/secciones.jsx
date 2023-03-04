@@ -28,6 +28,7 @@ function Secciones({ item, setArray, arrayItems }) {
   const [urlNueva, setUrlNueva] = useState(null);
   const [stockNuevo, setStockNuevo] = useState(null);
   const [nombreNuevo, setNombreNuevo] = useState(null);
+  const [descNueva, setDescNueva] = useState(null);
 
   const editPrecio = async (e) => {
     //traemos los datos de base de datos
@@ -58,6 +59,9 @@ function Secciones({ item, setArray, arrayItems }) {
     if (nombreNuevo) {
       itemFiltrado[0].title = nombreNuevo;
     }
+    if (descNueva) {
+      itemFiltrado[0].desc = descNueva;
+    }
 
     //creamos el nuevo array con el item ya editado y traemos las otras secciones
     otrosItems.splice(indexItemFiltrado, 0, itemFiltrado[0]);
@@ -79,7 +83,14 @@ function Secciones({ item, setArray, arrayItems }) {
     });
 
     //Actualizamos la base de datos
-    if (precioNuevo || urlNueva || stockNuevo || !stockNuevo || nombreNuevo) {
+    if (
+      precioNuevo ||
+      urlNueva ||
+      stockNuevo ||
+      !stockNuevo ||
+      nombreNuevo ||
+      descNueva
+    ) {
       updateDoc(docRef, { items: [...otraSecciones] });
 
       setArray(otraSecciones);
@@ -175,6 +186,7 @@ function Secciones({ item, setArray, arrayItems }) {
               setUrlNueva={setUrlNueva}
               setStockNuevo={setStockNuevo}
               setNombreNuevo={setNombreNuevo}
+              setDescNueva={setDescNueva}
             />
           );
         })}
