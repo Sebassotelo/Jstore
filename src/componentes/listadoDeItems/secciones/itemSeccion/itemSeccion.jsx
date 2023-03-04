@@ -25,7 +25,7 @@ function ItemSeccion({
   setUrlNueva,
   setStockNuevo,
   setNombreNuevo,
-  stockRapido,
+  setDescNueva,
 }) {
   const context = useContext(CarroContext);
   const { setMenuCompleto } = useContext(CarroContext);
@@ -45,6 +45,9 @@ function ItemSeccion({
   };
   const cambioNombre = (e) => {
     setNombreNuevo(e.target.value);
+  };
+  const cambioDesc = (e) => {
+    setDescNueva(e.target.value);
   };
 
   return (
@@ -81,6 +84,45 @@ function ItemSeccion({
                   Guardar
                 </button>
               </form>
+              <form
+                className="edit__precio"
+                onSubmit={() => {
+                  editPrecio(item.id);
+                  setEditarPrecio(!editarPrecio);
+                }}
+              >
+                {" "}
+                <input
+                  type="text"
+                  placeholder="Descripcion"
+                  onChange={cambioDesc}
+                  className="edit__desc__container"
+                />
+                <button
+                  type="submit"
+                  className="guardar__edit edit__desc__container"
+                >
+                  Guardar
+                </button>
+              </form>
+
+              <form
+                className="edit__precio"
+                onSubmit={() => {
+                  editPrecio(item.id);
+                  setEditarPrecio(!editarPrecio);
+                }}
+              >
+                {" "}
+                <input
+                  type="text"
+                  placeholder="Url Imagen"
+                  onChange={cambioUrl}
+                />
+                <button type="submit" className="guardar__edit">
+                  Guardar
+                </button>
+              </form>
 
               <form
                 className="edit__precio"
@@ -99,23 +141,7 @@ function ItemSeccion({
                   Guardar
                 </button>
               </form>
-              <form
-                className="edit__precio"
-                onSubmit={() => {
-                  editPrecio(item.id);
-                  setEditarPrecio(!editarPrecio);
-                }}
-              >
-                {" "}
-                <input
-                  type="text"
-                  placeholder="Url Imagen"
-                  onChange={cambioUrl}
-                />
-                <button type="submit" className="guardar__edit">
-                  Guardar
-                </button>
-              </form>
+
               <form
                 className="edit__precio"
                 onSubmit={() => {

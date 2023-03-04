@@ -26,11 +26,13 @@
 
 .edit__input__container {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  justify-items: center;
+  grid-template-columns: 1fr;
   grid-gap: 15px;
   background-color: rgb(116, 115, 115);
   padding: 15px;
   border-radius: 15px;
+  min-width: 350px;
 }
 
 .cancelar__edit {
@@ -42,16 +44,19 @@
   height: 30px;
 }
 .edit__precio {
-  width: 150px;
+  width: 90%;
 }
 
 .edit__precio input {
-  width: 80px;
+  width: 70%;
   height: 30px;
   border: none;
   border-bottom-left-radius: 15px;
   border-top-left-radius: 15px;
   padding: 0 0 0 10px;
+}
+.edit__desc__container {
+  height: 80px !important;
 }
 .guardar__edit {
   height: 32px;
