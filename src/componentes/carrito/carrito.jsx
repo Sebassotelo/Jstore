@@ -25,8 +25,8 @@ function Carrito() {
       totalPrecio = totalPrecio + e.precio * e.cant;
       totalUnidades = totalUnidades + e.cant;
     });
-    if (totalUnidades >= 3) {
-      totalPrecio = totalPrecio - totalUnidades * 50;
+    if (totalUnidades >= 4) {
+      totalPrecio = totalPrecio - totalUnidades * 60;
     }
 
     setTotal(totalPrecio);
@@ -107,15 +107,15 @@ function Carrito() {
           (pedidoCopy =
             pedidoCopy +
             `${e.cant}X%20${e.titulo}%20-----%20$${
-              unidades >= 3
-                ? e.precio * e.cant - e.cant * 50
+              unidades >= 4
+                ? e.precio * e.cant - e.cant * 60
                 : e.precio * e.cant
             }%20%0A`)
       );
       let descuentoTotal;
       let precioTotal;
-      if (unidades >= 3) {
-        descuentoTotal = `Descuento%20aplicado%20de:%20$${unidades * 50}`;
+      if (unidades >= 4) {
+        descuentoTotal = `Descuento%20aplicado%20de:%20$${unidades * 60}`;
         precioTotal = `Total%20con%20descuento:%20$${total}`;
       } else {
         descuentoTotal = "";
@@ -179,8 +179,8 @@ function Carrito() {
                       style={{ color: `${context.letraCarrito}` }}
                     >
                       $
-                      {unidades >= 3
-                        ? e.precio * e.cant - e.cant * 50
+                      {unidades >= 4
+                        ? e.precio * e.cant - e.cant * 60
                         : e.precio * e.cant}
                     </p>
                     <AiOutlineClose
@@ -203,9 +203,9 @@ function Carrito() {
                 <h4 style={{ color: `${context.letraCarrito}` }}>
                   TOTAL: ${total}
                 </h4>
-                {unidades >= 3 && (
+                {unidades >= 4 && (
                   <p className="total__descuento">
-                    Descuento Aplicado de ${unidades * 50}
+                    Descuento Aplicado de ${unidades * 60}
                   </p>
                 )}
               </div>
