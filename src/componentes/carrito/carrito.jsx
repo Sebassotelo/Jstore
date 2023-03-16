@@ -122,7 +122,7 @@ function Carrito() {
         precioTotal = `Total:%20$${total}`;
       }
       setPed(
-        `Hola,%20te%20pido%20esto:%0A%0A${pedidoCopy}%0A${precioTotal}%0A${descuentoTotal}`
+        `Hola%20Chico%20de%20las%20medias!%20Este%20es%20mi%20pedido🧦:%0A%0A${pedidoCopy}%0A${precioTotal}%0A${descuentoTotal}`
       );
 
       navigator.clipboard.writeText(pedidoCopy);
